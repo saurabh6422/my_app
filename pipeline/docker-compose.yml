@@ -1,0 +1,6 @@
+services:
+  app:
+    container_name: my_app_container
+    image: my_app:$BUILD_NO
+    build:
+      context: .
