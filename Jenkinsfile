@@ -12,7 +12,7 @@ pipeline {
               success {
                  archiveArtifacts artifacts: '/target/*.jar'
 		}
-            {
+           }
         }
         stage('Test') {
             steps {
