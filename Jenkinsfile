@@ -1,13 +1,18 @@
 pipeline {
     agent any
     environment {
-      PASS = 'Saurabh@6422'
+      PASS = Credential('dockerhubPassword')
     }  
     stages {
         stage('Build') {
             steps {
                 sh './pipeline/build.sh mvn -DskipTests clean package'
             }
+            post {
+              success {
+                 archiveArtifacts artifacts: '/target/*.jar'
+		}
+            {
         }
         stage('Test') {
             steps {
